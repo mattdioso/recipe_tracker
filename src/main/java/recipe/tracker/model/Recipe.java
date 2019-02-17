@@ -20,7 +20,7 @@ import javax.persistence.JoinColumn;
 import recipe.tracker.model.Ingredient;
 import recipe.tracker.model.User;
 
-import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 public class Recipe extends BaseObject {
@@ -36,7 +36,7 @@ public class Recipe extends BaseObject {
 
 	@OneToMany(mappedBy = "recipe", cascade = {CascadeType.ALL})
 	@OrderBy("recipe")
-	private HashMap<Ingredient, Integer> ingredients;
+	private Map<Ingredient, Integer> ingredients;
 
 	public Recipe() {}
 
@@ -64,11 +64,11 @@ public class Recipe extends BaseObject {
 		return user;
 	}
 
-	public void setIngredients(HashMap<Ingredient, Integer> ingredients) {
+	public void setIngredients(Map<Ingredient, Integer> ingredients) {
 		this.ingredients = ingredients;
 	}
 
-	public HashMap<Ingredient, Integer> getIngredients() {
+	public Map<Ingredient, Integer> getIngredients() {
 		return ingredients;
 	}
 }
